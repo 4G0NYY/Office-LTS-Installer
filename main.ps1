@@ -20,7 +20,7 @@
 $isoUrl = "https://officecdn.microsoft.com/db/492350F6-3A01-4F97-B9C0-C7C6DDF67D60/media/de-DE/ProPlus2021Retail.img"
 $isoPath = "$env:TEMP\ProPlus2021Retail.iso"
 $kmsKey = "FXYTK-NJJ8C-GB6DW-3DYQT-6F7TH"
-$kmsServer = "107.175.77.7"
+$kmsServer = "kms8.msguides.com"
 $kmsPort = "1688"
 
 function Write-Status {
