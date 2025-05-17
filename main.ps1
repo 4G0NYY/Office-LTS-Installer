@@ -130,3 +130,16 @@ finally {
 }
 
 Write-Status "Script completed."
+
+try {
+    # Only prompt if script was not run from existing PowerShell session
+    if ([Environment]::UserInteractive) {
+        Write-Host "Operation completed. Press any key to continue..." -ForegroundColor Green
+        [System.Console]::ReadKey($true) | Out-Null
+    }
+}
+catch {
+    # Fallback if ReadKey fails
+    Write-Host "Operation completed. Window will close automatically in 30 seconds..." -ForegroundColor Green
+    Start-Sleep -Seconds 30
+}
