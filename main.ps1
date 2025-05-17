@@ -49,7 +49,7 @@ try {
     # Step 3: Install Office
     Write-Status "Starting Office installation..."
     $setupPath = Join-Path -Path $driveLetter -ChildPath "Office\Setup64.exe"
-    $process = Start-Process -FilePath $setupPath -ArgumentList "/configure", "/norestart", "/quiet" -Wait -PassThru
+    $process = Start-Process -FilePath $setupPath -Wait -PassThru
     
     if ($process.ExitCode -ne 0) {
         throw "Office installation failed with exit code $($process.ExitCode)"
