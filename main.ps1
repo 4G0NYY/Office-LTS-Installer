@@ -9,8 +9,9 @@
     4. Activates using KMS server
 .NOTES
     File Name      : main.ps1
+    EXE-Name       : InstallOffice2021.exe
     Requires admin privileges
-    Developer: https://github.com/4G0NYY
+    Author: https://github.com/4G0NYY
 #>
 
 #Requires -RunAsAdministrator
@@ -47,7 +48,7 @@ try {
 
     # Step 3: Install Office
     Write-Status "Starting Office installation..."
-    $setupPath = Join-Path -Path $driveLetter -ChildPath "setup.exe"
+    $setupPath = Join-Path -Path $driveLetter -ChildPath "Office\Setup64.exe"
     $process = Start-Process -FilePath $setupPath -ArgumentList "/configure", "/norestart", "/quiet" -Wait -PassThru
     
     if ($process.ExitCode -ne 0) {
@@ -125,7 +126,7 @@ finally {
     }
     
     # Optional: Remove downloaded ISO
-    # if (Test-Path $isoPath) { Remove-Item $isoPath -Force }
+    if (Test-Path $isoPath) { Remove-Item $isoPath -Force }
 }
 
 Write-Status "Script completed."
